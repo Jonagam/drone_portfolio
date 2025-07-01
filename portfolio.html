@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portefølje</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="logo">Dronefotos</div>
+    <div class="burger" id="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav id="nav-menu">
+      <a href="index.html">FORSIDE</a>
+      <a href="portfolio.html">PORTEFØLJE</a>
+      <a href="about.html">OM</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="portfolio-section">
+      <h1>Min Portefølje</h1>
+      <p>Her kan du se et udvalg af mine droneoptagelser fra forskellige opgaver og projekter.</p>
+
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="img/landskab/molergrav.jpg" alt="Molergrav">
+          <p>Landskab</p>
+        </div>
+        <div class="gallery-item">
+          <img src="img/inspektion/gymnasie_1.jpg" alt="Gymnasie">
+          <p>Inspektion</p>
+        </div>
+        <div class="gallery-item">
+          <img src="img/events/groove.jpeg" alt="Event Groove">
+          <p>Events</p>
+        </div>
+        <!-- Tilføj flere billeder her -->
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const burger = document.getElementById('burger');
+      const navMenu = document.getElementById('nav-menu');
+
+      burger.addEventListener('click', () => {
+        burger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
