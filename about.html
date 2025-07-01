@@ -2,27 +2,57 @@
 <html lang="da">
 <head>
   <meta charset="UTF-8" />
-  <title>Om</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Om | Dronefotos</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
 <body>
-
   <header>
     <div class="logo">Dronefotos</div>
     <nav>
-      <a href="index.html">Portefølje</a>
-      <a href="#">Services</a>
-      <a href="om.html">Om</a>
+      <a href="index.html">PORTEFØLJE</a>
+      <a href="#">SERVICES</a>
+      <a href="about.html" class="active">OM</a>
     </nav>
   </header>
 
-  <main>
-    <section class="about">
-      <h1>Om mig</h1>
-      <p>Jeg arbejder med dronefotografi og har erfaring med landskabsoptagelser, inspektion, events og boligfremvisning.</p>
-      <p>Jeg bruger professionelt udstyr og redigerer alt materiale selv. Du kan kontakte mig hvis du har en opgave eller vil samarbejde.</p>
+  <main class="about-page">
+    <section class="about-section">
+      <h1>About</h1>
+      <p>
+        Jeg er dronepilot og fotograf med fokus på at fange arkitektur, landskaber og begivenheder fra luften.
+        Med base i Danmark og baggrund i data og AI fra DTU, kombinerer jeg teknisk præcision med visuelt udtryk.
+      </p>
+      <img src="img/portraet.jpg" alt="Portræt">
+    </section>
+
+    <section class="contact-section">
+      <h2>Kontakt</h2>
+      <form>
+        <div class="form-group">
+          <label for="firstname">Fornavn</label>
+          <input type="text" id="firstname" name="firstname" required />
+        </div>
+        <div class="form-group">
+          <label for="lastname">Efternavn</label>
+          <input type="text" id="lastname" name="lastname" />
+        </div>
+        <div class="form-group full-width">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group full-width">
+          <label>
+            <input type="checkbox" name="newsletter" />
+            Tilmeld dig nyheder og opdateringer
+          </label>
+        </div>
+        <div class="form-group full-width">
+          <button type="submit">Send</button>
+        </div>
+      </form>
     </section>
   </main>
-
 </body>
 </html>
