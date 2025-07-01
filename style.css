@@ -307,6 +307,11 @@ textarea {
 
 /* === Mobilmenu og animation === */
 @media (max-width: 768px) {
+
+  .form-row {
+    flex-direction: column;
+  }
+  
   .burger {
     display: flex;
   }
