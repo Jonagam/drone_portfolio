@@ -13,27 +13,50 @@
 
 /* === Layout – header og navigation === */
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 2rem;
-      border-bottom: 1px solid #ccc;
-      background-color: #fff;
-    }
+/* Grundlayout */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+}
 
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
+/* Burger-ikon skjules på desktop */
+.burger {
+  font-size: 2rem;
+  cursor: pointer;
+  display: none;
+}
 
-    nav a {
-      margin-left: 1.5rem;
-      text-decoration: none;
-      color: #111;
-      font-weight: 500;
-    }
+/* Nav-menu – standardvisning */
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Mobilvisning */
+@media (max-width: 768px) {
+  .burger {
+    display: block;
+  }
+
+  nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    flex-direction: column;
+    width: 100%;
+    display: none; /* skjult som udgangspunkt */
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  nav.active {
+    display: flex; /* vises når aktiv */
+  }
+}
 
     .gallery-header {
       font-family: 'Playfair Display', serif;
@@ -228,6 +251,7 @@ button[type="submit"] {
   justify-content: space-between;
   gap: clamp(1rem, 4vw, 2rem);
   flex-wrap: wrap;
+  margin-bottom: 1rem
 }
 
 .about-text {

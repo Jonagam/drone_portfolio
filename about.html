@@ -7,14 +7,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+<script>
+  const burger = document.getElementById('burger');
+  const navMenu = document.getElementById('nav-menu');
+
+  burger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+</script>
 <body>
 
   <header>
     <div class="logo">Dronefotos</div>
-    <nav>
-      <a href="index.html">PORTEFØLJE</a>
+    <div class="burger" id="burger">&#9776;</div> <!-- burger-ikon -->
+    <nav id="nav-menu">
+      <a href="#">PORTEFØLJE</a>
       <a href="#">SERVICES</a>
-      <a href="about.html" class="active">OM</a>
+      <a href="about.html">OM</a>
     </nav>
   </header>
 
