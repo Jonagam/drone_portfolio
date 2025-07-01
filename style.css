@@ -46,6 +46,11 @@ nav {
 }
 
 /* Mobilvisning */
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
 @media (max-width: 768px) {
   .burger {
     display: block;
