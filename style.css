@@ -47,8 +47,11 @@ header {
   flex-wrap: nowrap;
 }
 .logo {
+  font-family: 'Playfair Display', serif !important;
   font-size: 2rem;
   font-weight: 600;
+  color: #111;
+  text-decoration: none;
 }
 nav {
   display: flex;
