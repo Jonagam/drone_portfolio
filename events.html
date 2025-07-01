@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events | Dronefotos</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="logo">Dronefotos</a>
+    <div class="burger" id="burger">&#9776;</div>
+    <nav id="nav-menu">
+      <a href="index.html">FORSIDE</a>
+      <a href="portfolio.html">PORTEFØLJE</a>
+      <a href="events.html" class="active">EVENTS</a>
+      <a href="about.html">OM</a>
+    </nav>
+  </header>
+
+  <!-- Event-galleri -->
+  <section class="portfolio-gallery">
+    <h2 style="font-family:'Playfair Display', serif; text-align:center; margin-bottom:2rem;">Events</h2>
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="img/events/groove.jpeg" alt="Groove Festival">
+        <p>Groove Festival</p>
+      </div>
+      <div class="gallery-item">
+        <img src="img/events/event2.jpg" alt="Event 2">
+        <p>Event 2</p>
+      </div>
+      <!-- Tilføj flere event-billeder efter samme skabelon -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="text-align:center; padding:2rem 0; font-family:'Playfair Display', serif;">
+    &copy; 2025 Dronefotos. Alle rettigheder forbeholdes.
+  </footer>
+
+  <!-- Burger-menu script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const burger = document.getElementById('burger');
+      const nav = document.getElementById('nav-menu');
+      burger.addEventListener('click', () => {
+        burger.classList.toggle('active');
+        nav.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
