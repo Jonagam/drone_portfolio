@@ -90,6 +90,11 @@ nav a.active {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
+/* Burger-ikon er skjult på desktop */
+.burger {
+  display: none;
+}
+
 /* ==========================================================================
    4. Hero Section
    ========================================================================== */
