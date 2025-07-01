@@ -7,14 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dronefotos</title>
 </head>
-<script>
-  const burger = document.getElementById('burger');
-  const navMenu = document.getElementById('nav-menu');
-
-  burger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-  });
-</script>
 <body>
   <header>
     <div class="logo">Dronefotos</div>
@@ -61,5 +53,17 @@
       </div>
     </div>
   </section>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const burger = document.getElementById('burger');
+    const navMenu = document.getElementById('nav-menu');
+
+    burger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+  });
+</script>
+
 </body>
 </html>
