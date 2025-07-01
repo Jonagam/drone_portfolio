@@ -134,7 +134,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* === Galleri / portefølje === */
+/* === Galleri forside === */
 
     .gallery-section {
       padding: 3rem 2rem;
@@ -180,6 +180,49 @@ a:hover {
       color: #111;
       font-family: 'Playfair Display', serif;
     }
+
+/* === Galleri - Portefølje === */
+
+.portfolio-gallery {
+  padding: 3rem 2rem;
+  background-color: #f9f9f9;
+}
+
+.portfolio-gallery .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.portfolio-gallery .gallery-item {
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+  text-align: center;
+}
+
+.portfolio-gallery .gallery-item img {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* Horisontalt format */
+  object-fit: cover;
+  display: block;
+}
+
+.portfolio-gallery .gallery-item:hover {
+  transform: scale(1.02);
+}
+
+.portfolio-gallery .gallery-item p {
+  padding: 0.75rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #111;
+}
+
+
 
 /* === Undersider – about.html og kontakt === */
 .container {
