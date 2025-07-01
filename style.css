@@ -146,6 +146,15 @@ nav {
       cursor: pointer;
     }
 
+a {
+  color: #111;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 /* === Galleri / portefølje === */
 
     .gallery-section {
@@ -200,8 +209,6 @@ nav {
   padding: 2rem;
 }
 
-.about-section {
-}
 
 .about-section img {
   width: 100%;
