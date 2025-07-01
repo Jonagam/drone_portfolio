@@ -1,4 +1,4 @@
-<style>
+/* === Reset og basis === */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -11,6 +11,7 @@
       color: #111;
     }
 
+/* === Layout – header og navigation === */
 
     header {
       display: flex;
@@ -33,6 +34,20 @@
       color: #111;
       font-weight: 500;
     }
+
+    .gallery-header {
+      font-family: 'Playfair Display', serif;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .gallery-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+    }
+
+/* === Forside – hero og knapper === */
 
     .hero {
       display: flex;
@@ -81,6 +96,15 @@
       color: #fff;
     }
 
+    .hero img {
+      flex: 1;
+      max-width: 500px;
+      width: 100%;
+      margin-top: 2rem;
+    }
+
+/* === Knapper generelt og links === */
+
     .button-link {
       font-family: 'Playfair Display', serif;
       background: none;
@@ -95,29 +119,13 @@
       cursor: pointer;
     }
 
-    .hero img {
-      flex: 1;
-      max-width: 500px;
-      width: 100%;
-      margin-top: 2rem;
-    }
+/* === Galleri / portefølje === */
 
     .gallery-section {
       padding: 3rem 2rem;
       background-color: #f0f0f0;
     }
 
-    .gallery-header {
-      font-family: 'Playfair Display', serif;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .gallery-header h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-    }
 
     .gallery {
     display: grid;
@@ -157,3 +165,5 @@
       color: #111;
       font-family: 'Playfair Display', serif;
     }
+
+/* === Undersider – about.html og kontakt === */
