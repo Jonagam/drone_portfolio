@@ -12,7 +12,11 @@
 
   <header>
     <a href="index.html" class="logo">Dronefotos</a>
-    <div class="burger" id="burger">&#9776;</div> <!-- burger-ikon -->
+      <div class="burger" id="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     <nav id="nav-menu">
       <a href="#">PORTEFØLJE</a>
       <a href="#">SERVICES</a>
@@ -27,8 +31,7 @@
         <div class="about-text">
           <h1>About</h1>
           <p>
-            Jeg er dronepilot og fotograf med fokus på at fange arkitektur, landskaber og begivenheder fra luften.
-            Med base i Danmark og baggrund i data og AI fra DTU, kombinerer jeg teknisk præcision med visuelt udtryk.
+            Her kommer der en mega god teks om mig selv.
           </p>
         </div>
         <div class="about-image">
@@ -70,15 +73,16 @@
   </main>
 
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const burger = document.getElementById('burger');
-    const navMenu = document.getElementById('nav-menu');
+    document.addEventListener("DOMContentLoaded", function () {
+      const burger = document.getElementById('burger');
+      const navMenu = document.getElementById('nav-menu');
 
-    burger.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
+      burger.addEventListener('click', () => {
+        burger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      });
     });
-  });
-</script>
+  </script>
 
 </body>
 </html>
