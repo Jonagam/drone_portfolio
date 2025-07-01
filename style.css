@@ -174,8 +174,6 @@
 }
 
 .about-section {
-  margin-bottom: 4rem;
-  padding: 4rem 0;
 }
 
 .about-section img {
@@ -208,7 +206,8 @@
 
 input[type="text"],
 input[type="email"] {
-  padding: 0.5rem;
+  padding: 0.6rem;
+  font-size: 1.1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
@@ -246,4 +245,13 @@ button[type="submit"] {
   height: auto;
   border-radius: 8px;
   object-fit: cover;
+}
+
+textarea {
+  padding: 0.6rem;
+  font-size: 1.1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  min-height: 6rem;
 }

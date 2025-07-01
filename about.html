@@ -37,7 +37,7 @@
 
     <section class="contact-section">
       <h2>Kontakt</h2>
-      <form class="contact-form" action="https://formsubmit.co/jp.gammelgaard@gmail.com" method="POST">
+      <form class="contact-form" action="https://formsubmit.co/8f14ab1ee62c2ba1eb6f02e5d3487718" method="POST">
         <input type="hidden" name="_next" value="https://jonagam.github.io/drone_portfolio/thank-you.html">
 
         <div class="form-row">
@@ -45,6 +45,7 @@
             <label for="firstname">Fornavn</label>
             <input type="text" id="firstname" name="Fornavn" required>
           </div>
+
           <div class="form-group">
             <label for="lastname">Efternavn</label>
             <input type="text" id="lastname" name="Efternavn" required>
@@ -52,15 +53,13 @@
         </div>
 
         <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="Email" required>
+          <label for="message">Besked</label>
+          <textarea id="message" name="Besked" rows="5" required class="form-control"></textarea>
         </div>
 
         <div class="form-group">
-          <label>
-            <input type="checkbox" name="Nyhedsbrev">
-            Tilmeld dig nyheder og opdateringer
-          </label>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="Email" required>
         </div>
 
         <button type="submit">Send</button>
