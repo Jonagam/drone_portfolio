@@ -76,7 +76,7 @@ nav {
 
 @media (max-width: 768px) {
   .burger {
-    display: block;
+    display: flex;
   }
 
   nav {
