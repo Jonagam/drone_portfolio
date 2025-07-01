@@ -200,7 +200,7 @@ a:hover {
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease;
-  text-align: center;
+  position: relative;
 }
 
 .portfolio-gallery .gallery-item img {
@@ -219,38 +219,33 @@ a:hover {
   transition: transform 0.3s ease;
 }
 
-.portfolio-gallery .gallery-item img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.3s ease;
+.gallery-item {
+  position: relative;
+  overflow: hidden;
 }
 
-.portfolio-gallery .overlay-text {
+.gallery-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
-  padding: 0.75rem;
+  right: 0;
   background: rgba(0, 0, 0, 0.6);
   color: white;
   font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  padding: 1rem;
   text-align: center;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.portfolio-gallery .gallery-item:hover .overlay-text {
+.gallery-item:hover .gallery-overlay {
   opacity: 1;
 }
 
 .portfolio-gallery .gallery-item:hover img {
   transform: scale(1.05);
 }
-
-
 
 /* === Undersider – about.html og kontakt === */
 .container {
