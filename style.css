@@ -253,6 +253,23 @@ padding: 2rem 0;
   transform: scale(1.05);
 }
 
+/* Kun til landskab.html */
+
+.landskab-gallery .gallery-item {
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
+  padding: 0;
+}
+
+.landskab-gallery .gallery-item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
 /* === Undersider – about.html og kontakt === */
 .container {
   max-width: 960px;
