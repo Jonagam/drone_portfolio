@@ -337,4 +337,13 @@ button[type="submit"] {
   }
 
   /* Hero & andre afsnit tilpasninger… */
+  .hero {
+  flex-direction: column;
+  text-align: center;
+}
+
+.hero img {
+  max-width: 100%;
+  margin-top: 2rem;
+}
 }
