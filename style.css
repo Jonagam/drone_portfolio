@@ -103,16 +103,16 @@ nav a.active {
    ========================================================================== */
 .hero {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
   padding: 4rem 8vw;
+  gap: 4rem;
   background-color: #fff;
-  gap: 3rem;
 }
 .hero-text {
   flex: 1;
-  min-width: 250px;
+  min-width: 600px;
 }
 .hero-text h1 {
   font-size: 3rem;
@@ -120,32 +120,35 @@ nav a.active {
 }
 .hero-buttons {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, auto);
   gap: 1rem;
-  max-width: 400px;
 }
+
 .hero-link-button {
   display: inline-block;
-  padding: 1rem;
+  padding: 1.2rem 2rem;
   text-align: center;
   border: 2px solid #000;
   background: none;
   color: #000;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 1.1rem;
   text-decoration: none;
   transition: all 0.2s ease;
 }
+
 .hero-link-button:hover {
   background-color: #111;
   color: #fff;
 }
+
 .hero img {
   flex: 1;
-  max-width: 100%;
+  max-width: 600px;
   width: 100%;
   height: auto;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 /* ==========================================================================
