@@ -43,7 +43,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
-  position: relative;
+  position: center;
   flex-wrap: nowrap;
 }
 .logo {
@@ -103,49 +103,50 @@ nav a.active {
    ========================================================================== */
 .hero {
   display: flex;
-  flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  padding: 4rem 8vw;
-  gap: 4rem;
-  background-color: #fff;
+  padding: 4rem 2rem;
+  max-width: 1000px;      /* ← containerbredde */
+  margin: 0 auto;
+  gap: 2rem;
+  flex-wrap: nowrap;      /* ← vigtigt: forhindrer hop */
 }
+
 .hero-text {
-  flex: 1;
-  min-width: 600px;
+  flex: 1 ;          /* ← minimum 400px, vokser efter plads */
+  max-width: 50%;
 }
+
 .hero-text h1 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: 2rem;
 }
+
 .hero-buttons {
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
   gap: 1rem;
 }
 
 .hero-link-button {
-  display: inline-block;
   padding: 1.2rem 2rem;
-  text-align: center;
-  border: 2px solid #000;
+  font-size: 1rem;
+  border: 2px solid black;
   background: none;
-  color: #000;
-  font-weight: 500;
-  font-size: 1.1rem;
+  color: black;
   text-decoration: none;
-  transition: all 0.2s ease;
+  text-align: center;
+  transition: background 0.3s ease;
 }
 
 .hero-link-button:hover {
-  background-color: #111;
-  color: #fff;
+  background: black;
+  color: white;
 }
 
 .hero img {
-  flex: 1;
-  max-width: 600px;
-  width: 100%;
+  flex: 1 ;
+  max-width: 50%;
   height: auto;
   object-fit: cover;
   border-radius: 8px;
@@ -186,33 +187,39 @@ label {
 /* ==========================================================================
    6. Gallery – Forside
    ========================================================================== */
-.gallery-section {
-  padding: 3rem 2rem;
-  background-color: #f0f0f0;
-}
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
-  padding: 2rem 0;
+  padding: 2rem ;
 }
-/* Fælles for alle galleri-kasser */
+
 .gallery-item {
-  position: relative;
+  border-radius: 6px;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.2s ease;
+}
+
+.image-wrapper {
   overflow: hidden;
   border-radius: 6px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.gallery-item:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
+
 .gallery-item img {
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   display: block;
+  transform: scale(1.05); /* start let forstørret */
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
+
+.gallery-item:hover img {
+  transform: scale(1.0); /* zoom-ud effekt */
+  filter: brightness(1); /* neutral, kan justeres */
+}
+
 .gallery-item p {
   padding: 1rem;
   font-weight: 500;
@@ -224,7 +231,11 @@ label {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem;
 }
 
 /* ==========================================================================
@@ -233,17 +244,47 @@ label {
 .portfolio-gallery {
   padding: 3rem 2rem;
   background-color: #f9f9f9;
+  max-width: 1200px;
+  margin: 0 auto;
 }
+
 .portfolio-gallery .gallery {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 4 pr række */
   gap: 2rem;
 }
-.portfolio-gallery .gallery-item img {
-  aspect-ratio: 4 / 3;
+
+.portfolio-gallery .gallery-item {
+  border-radius: 6px;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.2s ease;
 }
+
+.portfolio-gallery .image-wrapper {
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.portfolio-gallery .gallery-item img {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* bredere billeder */
+  object-fit: cover;
+  display: block;
+  transform: scale(1.05);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.portfolio-gallery .gallery-item:hover img {
+  transform: scale(1.0); /* zoom ud ved hover */
+  filter: brightness(1);
+}
+
 .portfolio-gallery .gallery-item p {
   padding: 0.75rem;
   font-size: 1rem;
+  text-align: center;
+  font-weight: 500;
 }
 
 /* ==========================================================================
@@ -336,14 +377,34 @@ button[type="submit"] {
     grid-template-columns: 1fr;
   }
 
-  /* Hero & andre afsnit tilpasninger… */
-  .hero {
-  flex-direction: column;
-  text-align: center;
+  .gallery img {
+  aspect-ratio: 4 / 3;         /* Gør dem bredere og lavere */
+  max-height: 250px;           /* Evt. begræns højden yderligere */
+  object-fit: cover;
+  border-radius: 6px;
 }
 
-.hero img {
-  max-width: 100%;
-  margin-top: 2rem;
-}
+
+  /* Hero & andre afsnit tilpasninger… */
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;        /* mindre padding på mobil */
+    gap: 2rem;
+    max-width: 100%;           /* ingen fast bredde */
+  }
+
+  .hero-text,
+  .hero img {
+    max-width: 100%;           /* fylder hele bredden af visningen */
+  }
+
+  .hero img {
+    height: auto;
+    max-height: 320px;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+
+  
 }
