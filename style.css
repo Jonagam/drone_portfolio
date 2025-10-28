@@ -109,7 +109,7 @@ nav a.active {
   max-width: 1000px;      /* ← containerbredde */
   margin: 0 auto;
   gap: 2rem;
-  flex-wrap: nowrap;      /* ← vigtigt: forhindrer hop */
+  flex-wrap: wrap;      /* ← vigtigt: forhindrer hop */
 }
 
 .hero-text {
