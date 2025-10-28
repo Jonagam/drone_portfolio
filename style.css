@@ -239,7 +239,10 @@ label {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
-  padding: 2rem ;
+  padding: 2rem;
+  /* match hero container width and centering so gallery aligns with hero buttons/video */
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .gallery-item {
@@ -263,6 +266,11 @@ label {
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
+/* Make front-page gallery images landscape (wider) */
+.gallery-section .gallery-item img {
+  aspect-ratio: 4 / 3; /* landscape orientation for index front gallery */
+}
+
 .gallery-item:hover img {
   transform: scale(1.0); /* zoom-ud effekt */
   filter: brightness(1); /* neutral, kan justeres */
@@ -280,7 +288,8 @@ label {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
-  max-width: 1200px;
+  /* align header width with hero container */
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
   padding: 0 2rem;
@@ -367,18 +376,57 @@ label {
   min-width: 200px;
 }
 .contact-form {
-  display: flex;
-  flex-wrap: wrap;
+  /* Grid layout: two columns on desktop, single column on mobile */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
+  max-width: 720px;
+  margin: 0 auto;
 }
 .form-row {
-  display: flex;
-  gap: 1rem;
+  display: contents; /* preserve existing markup but let grid handle layout */
 }
 .form-group {
   flex: 1;
   display: flex;
   flex-direction: column;
+}
+/* Make certain form groups span full width */
+.contact-form .form-group.full {
+  grid-column: 1 / -1;
+}
+
+.contact-form label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.contact-form textarea {
+  min-height: 140px;
+}
+
+.form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-submit {
+  padding: 0.75rem 1.25rem;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
 }
 button[type="submit"] {
   padding: 0.75rem 1.5rem;
@@ -418,6 +466,15 @@ button[type="submit"] {
   /* Form stacking */
   .form-row {
     flex-direction: column;
+  }
+
+  .contact-form {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .form-actions {
+    justify-content: center;
   }
 
   /* Gallery stacking (hvis nødvendigt) */
