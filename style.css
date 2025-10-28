@@ -43,7 +43,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
-  position: center;
+  position: relative;
   flex-wrap: nowrap;
 }
 .logo {
@@ -96,6 +96,39 @@ nav a.active {
 /* Burger-ikon er skjult på desktop */
 .burger {
   display: none;
+}
+
+/* Skip-link for keyboard users */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  background: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+/* Reset and layout for nav list */
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.site-nav a {
+  text-transform: none; /* keep case consistent with HTML */
 }
 
 /* ==========================================================================

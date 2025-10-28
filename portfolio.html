@@ -8,21 +8,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <a href="index.html" class="logo">Dronefotos</a>
-    <div class="burger" id="burger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <nav id="nav-menu">
-      <a href="portfolio.html" class="active">PORTEFØLJE</a>
-      <a href="###.html">SERVICES</a>
-      <a href="about.html">OM</a>
-    </nav>
-  </header>
+  <div data-include="header"></div>
 
-  <main class="container">
+  <main id="main" class="container">
     <section class="portfolio-gallery">
     <h1>Min Portefølje</h1>
     <p>Her kan du se et udvalg af mine droneoptagelser fra forskellige opgaver og projekter.</p>
@@ -30,17 +18,17 @@
         <div class="gallery">
 
             <a href="landskab.html" class="gallery-item">
-            <img src="img/landskab/molergrav.jpg" alt="Molergrav">
+            <img src="img/landskab/molergrav.jpg" alt="Molergrav ved kysten set fra luften">
             <div class="caption"><p>Landskab</p></div>
             </a>
 
             <a href="inspektion.html" class="gallery-item">
-            <img src="img/inspektion/gymnasie_1.jpg" alt="Gymnasie">
+            <img src="img/inspektion/gymnasie_1.jpg" alt="Inspektion af skolebygning set fra luften">
             <div class="caption"><p>Inspektion</p></div>
             </a>
 
             <a href="events.html" class="gallery-item">
-            <img src="img/events/groove.jpeg" alt="Event Groove">
+            <img src="img/events/groove.jpeg" alt="Flyfoto fra Groove Festival">
             <div class="caption"><p>Events</p></div>
             </a>
 
@@ -50,16 +38,8 @@
     </section>
   </main>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const burger = document.getElementById('burger');
-      const navMenu = document.getElementById('nav-menu');
+  <div data-include="footer"></div>
 
-      burger.addEventListener('click', () => {
-        burger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-      });
-    });
-  </script>
+  <script src="includes.js" defer></script>
 </body>
 </html>

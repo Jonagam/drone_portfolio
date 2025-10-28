@@ -1,0 +1,8 @@
+{
+  // Prevent Live Server from attempting to inject reload script into HTML fragments
+  // (partials lack <head> / <body> which causes: "Live Reload is not possible without a head or body tag.")
+  "liveServer.settings.ignoreFiles": [
+    "**/partials/**",
+    "**/includes.js"
+  ]
+}

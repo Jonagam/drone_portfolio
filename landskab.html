@@ -8,52 +8,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <a href="index.html" class="logo">Dronefotos</a>
-    <div class="burger" id="burger">&#9776;</div>
-    <nav id="nav-menu">
-      <a href="index.html">FORSIDE</a>
-      <a href="portfolio.html">PORTEFØLJE</a>
-      <a href="about.html">OM</a>
-    </nav>
-  </header>
+  <div data-include="header"></div>
 
+  <main id="main">
   <!-- Landskabsbilleder -->
   <section class="portfolio-gallery landskab-gallery">
-    <h2 style="font-family: 'Playfair Display', serif; text-align: center; margin-bottom: 2rem;">Landskabsbilleder</h2>
+    <h2 class="section-title">Landskabsbilleder</h2>
     <div class="gallery">
       <div class="gallery-item">
-        <img src="img/landskab/billede1.jpg" alt="Landskab 1">
-        
+        <img src="img/landskab/billede1.jpg" alt="Landskab ved kysten set fra luften">
       </div>
       <div class="gallery-item">
-        <img src="img/landskab/billede2.jpg" alt="Landskab 2">
+        <img src="img/landskab/billede2.jpg" alt="Skovområde fotograferet fra drone">
       </div>
       <div class="gallery-item">
-        <img src="img/landskab/billede3.jpg" alt="Landskab 3">
+        <img src="img/landskab/billede3.jpg" alt="Sø og omgivelser set fra oven">
       </div>
       <div class="gallery-item">
-        <img src="img/landskab/billede4.jpg" alt="Landskab 4">
+        <img src="img/landskab/billede4.jpg" alt="Åbent landskab og marker set fra luften">
       </div>
     </div>
   </section>
+  </main>
 
-  <!-- Footer -->
-  <footer style="text-align: center; padding: 2rem 0; font-family: 'Playfair Display', serif;">
-    &copy; 2025 Dronefotos. Alle rettigheder forbeholdes.
-  </footer>
+  <div data-include="footer"></div>
 
-  <!-- Burger-menu script -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const burger = document.getElementById('burger');
-      const navMenu = document.getElementById('nav-menu');
-
-      burger.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-      });
-    });
-  </script>
+  <script src="includes.js" defer></script>
 </body>
 </html>

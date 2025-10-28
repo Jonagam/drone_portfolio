@@ -8,23 +8,13 @@
   <title>Dronefotos</title>
 </head>
 <body>
-  <header>
-    <a href="index.html" class="logo">Dronefotos</a>
-    <div class="burger" id="burger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <nav id="nav-menu">
-      <a href="portfolio.html" >PORTEFØLJE</a>
-      <a href="#">SERVICES</a>
-      <a href="about.html">OM</a>
-    </nav>
-  </header>
+  <div data-include="header"></div>
+
+  <main id="main">
 
   <section class="hero">
     <div class="hero-text">
-      <h1>Luftfotos til</h1>
+      <h1>Luftfotos til bolig, inspektion og events</h1>
       <div class="hero-buttons">
         <a href="#" class="hero-link-button">Inspektion</a>
         <a href="#" class="hero-link-button">Boligfremvisning</a>
@@ -36,10 +26,10 @@
       <iframe
         class="hero-video"
         src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=lP65rkB9kTU"
-        title="YouTube video"
-        frameborder="0"
-        allow="autoplay; encrypted-media"
-        allowfullscreen
+        title="Eksempel video fra Dronefotos (autoplay, muted)"
+        loading="lazy"
+        allow="autoplay; fullscreen"
+        referrerpolicy="no-referrer"
       ></iframe>
     </div>
   </section>
@@ -54,21 +44,21 @@
 
     <a href="landskab.html" class="gallery-item">
       <div class="image-wrapper">
-        <img src="img/landskab/molergrav.jpg" alt="Landskab">
+        <img src="img/landskab/molergrav.jpg" alt="Dronebillede af molergrav - landskab ved kysten">
       </div>
       <p>Landskab</p>
     </a>
 
     <a href="inspektion.html" class="gallery-item">
       <div class="image-wrapper">
-        <img src="img/inspektion/gymnasie_1.jpg" alt="Inspektion">
+        <img src="img/inspektion/gymnasie_1.jpg" alt="Dronebillede ved inspektion af tag og facader">
       </div>
       <p>Inspektion</p>
     </a>
 
     <a href="events.html" class="gallery-item">
       <div class="image-wrapper">
-        <img src="img/events/groove.jpeg" alt="Events">
+        <img src="img/events/groove.jpeg" alt="Photo fra et event med crowd og scene">
       </div>
       <p>Events</p>
     </a>
@@ -76,17 +66,11 @@
   </div>
 </section>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const burger = document.getElementById('burger');
-      const navMenu = document.getElementById('nav-menu');
+  </main>
 
-      burger.addEventListener('click', () => {
-        burger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-      });
-    });
-  </script>
+  <div data-include="footer"></div>
+
+  <script src="includes.js" defer></script>
 
 </body>
 </html>

@@ -10,21 +10,9 @@
 
 <body>
 
-  <header>
-    <a href="index.html" class="logo">Dronefotos</a>
-    <div class="burger" id="burger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <nav id="nav-menu">
-      <a href="portfolio.html">PORTEFØLJE</a>
-      <a href="#">SERVICES</a>
-      <a href="about.html">OM</a>
-    </nav>
-  </header>
+  <div data-include="header"></div>
 
-  <main class="container">
+  <main id="main" class="container">
 
     <section class="about-section">
       <div class="about-content">
@@ -35,7 +23,7 @@
           </p>
         </div>
         <div class="about-image">
-          <img src="img/misc/jona.jpeg" alt="Dronepilot">
+          <img src="img/misc/jona.jpeg" alt="Portræt af dronepilot"> 
         </div>
       </div>
     </section>
@@ -72,17 +60,9 @@
     </section>
   </main>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const burger = document.getElementById('burger');
-      const navMenu = document.getElementById('nav-menu');
+  <div data-include="footer"></div>
 
-      burger.addEventListener('click', () => {
-        burger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-      });
-    });
-  </script>
+  <script src="includes.js" defer></script>
 
 </body>
 </html>

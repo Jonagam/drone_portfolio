@@ -9,48 +9,28 @@
 </head>
 <body>
   <!-- Header -->
-  <header>
-    <a href="index.html" class="logo">Dronefotos</a>
-    <div class="burger" id="burger">&#9776;</div>
-    <nav id="nav-menu">
-      <a href="index.html">FORSIDE</a>
-      <a href="portfolio.html">PORTEFØLJE</a>
-      <a href="inspektion.html" class="active">INSPEKTION</a>
-      <a href="about.html">OM</a>
-    </nav>
-  </header>
+  <div data-include="header"></div>
 
+  <main id="main">
   <!-- Inspektions-galleri -->
   <section class="portfolio-gallery">
-    <h2 style="font-family:'Playfair Display', serif; text-align:center; margin-bottom:2rem;">Inspektion</h2>
+    <h2 class="section-title">Inspektion</h2>
     <div class="gallery">
       <div class="gallery-item">
-        <img src="img/inspektion/gymnasie_1.jpg" alt="Gymnasie">
+        <img src="img/inspektion/gymnasie_1.jpg" alt="Inspektion af skolebygning set fra dronen">
         <p>Gymnasie</p>
       </div>
       <div class="gallery-item">
-        <img src="img/inspektion/nordhavn.jpg" alt="Nordhavn">
+        <img src="img/inspektion/nordhavn.jpg" alt="Inspektion af havneområde i Nordhavn">
         <p>Nordhavn</p>
       </div>
       <!-- Tilføj flere inspektionsbilleder efter samme skabelon -->
     </div>
   </section>
+  </main>
 
-  <!-- Footer -->
-  <footer style="text-align:center; padding:2rem 0; font-family:'Playfair Display', serif;">
-    &copy; 2025 Dronefotos. Alle rettigheder forbeholdes.
-  </footer>
+  <div data-include="footer"></div>
 
-  <!-- Burger-menu script -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const burger = document.getElementById('burger');
-      const nav = document.getElementById('nav-menu');
-      burger.addEventListener('click', () => {
-        burger.classList.toggle('active');
-        nav.classList.toggle('active');
-      });
-    });
-  </script>
+  <script src="includes.js" defer></script>
 </body>
 </html>
