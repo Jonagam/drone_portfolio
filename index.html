@@ -23,14 +23,8 @@
       </div>
     </div>
     <div class="hero-video-wrapper">
-      <iframe
-        class="hero-video"
-        src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=lP65rkB9kTU"
-        title="Eksempel video fra Dronefotos (autoplay, muted)"
-        loading="lazy"
-        allow="autoplay; fullscreen"
-        referrerpolicy="no-referrer"
-      ></iframe>
+      <!-- Placeholder div for YouTube player. Replace VIDEO_ID below with your video id -->
+      <div id="hero-player" class="hero-video" aria-label="Dronefotos video"></div>
     </div>
   </section>
 
@@ -71,6 +65,74 @@
   <div data-include="footer"></div>
 
   <script src="includes.js" defer></script>
+  <!-- YouTube IFrame API + small init to ensure mute+play (with retries) -->
+  <script>
+    // YouTube video ID for the hero section
+    const YT_VIDEO_ID = 'lP65rkB9kTU';
+
+    // Load YouTube IFrame API
+    (function loadYouTubeAPI(){
+      if (window.YT && window.YT.Player) return onYouTubeIframeAPIReady();
+      const tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+      const firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    })();
+
+    let heroPlayer;
+    function onYouTubeIframeAPIReady() {
+      heroPlayer = new YT.Player('hero-player', {
+        videoId: YT_VIDEO_ID,
+        playerVars: {
+          autoplay: 1,
+          mute: 1,
+          loop: 1,
+          playlist: YT_VIDEO_ID,
+          playsinline: 1,
+          rel: 0,
+          modestbranding: 1
+        },
+        events: {
+          onReady: onHeroReady,
+          onStateChange: onHeroStateChange
+        }
+      });
+    }
+
+    function onHeroReady(event) {
+      // Ensure muted and attempt play; retry if blocked
+      event.target.mute();
+      tryPlay(1);
+    }
+
+    function tryPlay(attempt) {
+      if (!heroPlayer || typeof heroPlayer.playVideo !== 'function') return;
+      try {
+        heroPlayer.playVideo();
+      } catch (e) {
+        // ignore
+      }
+      // If not playing after 800ms, retry a few times
+      setTimeout(() => {
+        const state = heroPlayer.getPlayerState && heroPlayer.getPlayerState();
+        // YT.PlayerState.PLAYING === 1
+        if (state !== 1 && attempt < 4) {
+          tryPlay(attempt + 1);
+        }
+      }, 800);
+    }
+
+    function onHeroStateChange(e) {
+      // If ended and loop didn't work, force replay
+      // YT.PlayerState.ENDED === 0
+      if (e.data === 0) {
+        // small delay then replay
+        setTimeout(() => {
+          if (heroPlayer && heroPlayer.playVideo) heroPlayer.playVideo();
+        }, 200);
+      }
+    }
+  </script>
 
 </body>
 </html>

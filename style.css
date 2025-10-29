@@ -16,23 +16,8 @@ html {
   line-height: 1.5;
 }
 
-/* ==========================================================================
-   2. Typography Utilities
-   ========================================================================== */
-/* Overskrifter */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', serif;
+a:visited {
   color: #111;
-  margin-bottom: 1rem;
-}
-
-/* Links */
-a {
-  color: #111;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
 }
 
 /* ==========================================================================
@@ -136,18 +121,23 @@ nav a.active {
    ========================================================================== */
 .hero {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;  /* ændret fra space-between til center */
   align-items: center;
   padding: 4rem 2rem;
-  max-width: 1000px;      /* ← containerbredde */
+  max-width: 1000px;
   margin: 0 auto;
   gap: 2rem;
-  flex-wrap: wrap;      /* ← vigtigt: forhindrer hop */
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .hero-text {
-  flex: 1 ;          /* ← minimum 400px, vokser efter plads */
-  max-width: 50%;
+  flex: 1 1 200px;
+  max-width: 450px;    /* fast bredde i stedet for procent */
+  width: 100%;
+  margin: 0 auto;      /* centrerer tekst-blokken som et element */
+  text-align: center;  /* centrerer overskrift og knapper */
+  min-width: 0;        /* tillad at elementet kan krympe */
 }
 
 .hero-text h1 {
@@ -159,10 +149,19 @@ nav a.active {
   display: grid;
   grid-template-columns: repeat(2, minmax(120px, 1fr));
   gap: 1rem;
+  justify-content: center; /* centrerer gridet i sin container */
+  width: min(460px, 100%); /* begræns bredde så knapperne står samlet */
+  margin: 0 auto; /* center the buttons block horizontally */
+  align-items: stretch; /* sørg for at grid-celler strækker sig lodret */
+  grid-auto-rows: 56px; /* ens højde på hver række af knapper */
 }
 
 .hero-link-button {
-  padding: 1.2rem 2rem;
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0 1rem; /* bredde-paddin, højde styres af grid-auto-rows */
   font-size: 1rem;
   border: 2px solid black;
   background: none;
@@ -170,6 +169,9 @@ nav a.active {
   text-decoration: none;
   text-align: center;
   transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-link-button:hover {
@@ -187,17 +189,23 @@ nav a.active {
 
 .hero-video-wrapper {
   flex: 1;
-  max-width: 600px;
-  width: 100%;
-  aspect-ratio: 16 / 9;
+    /* fast bredde der matcher tekst-sektionen */
+  min-width: 300px;    /* minimum bredde der matcher tekst-sektionen */
+  max-height: fit-c;
   overflow: hidden;
   border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;  /* centrerer video horisontalt */
 }
 
 .hero-video {
   width: 100%;
   height: 100%;
   border: none;
+  object-fit: cover;    /* tilbage til cover for at fylde hele containeren */
+  border-radius: 8px;
+  aspect-ratio: 16 / 9;
 }
 
 /* ==========================================================================
@@ -300,7 +308,7 @@ label {
    ========================================================================== */
 .portfolio-gallery {
   padding: 3rem 2rem;
-  background-color: #f9f9f9;
+  background-color: #f8f8f8;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -493,15 +501,69 @@ button[type="submit"] {
   /* Hero & andre afsnit tilpasninger… */
   .hero {
     flex-direction: column;
-    align-items: center;
-    padding: 2rem 1rem;        /* mindre padding på mobil */
-    gap: 2rem;
+    align-items: stretch;
+    padding: 1rem 1rem;        /* mindre padding på mobil */
+    gap: 0.4rem;              /* endnu mindre vertikal afstand mellem sektioner */
     max-width: 100%;           /* ingen fast bredde */
   }
+  .hero-text {
+    width: 100%;
+    margin: 0 auto;          /* fjern ekstra top/bund margin */
+    padding: 0 1rem;        /* hold lidt luft på siderne */
+    text-align: center;     /* sikr at overskrift og knapper er centreret */
+  }
 
-  .hero-text,
-  .hero img {
-    max-width: 100%;           /* fylder hele bredden af visningen */
+  .hero-text h1 {
+    margin-bottom: 0.6rem;    /* mindre afstand under overskrift på mobil */
+  }
+  
+  .hero-video-wrapper {
+    margin: auto;    /* fjern top-margen så video kommer tættere på knapper */
+    width: 100%;
+    position: relative;
+    height: 0;
+    padding-bottom: 56.25%;    /* standard 16:9 forhold */
+    overflow: hidden;
+    border-radius: 8px;
+    display: flex;
+  }
+
+
+  /* Ensure buttons are centered and closer together on mobile */
+  .hero-buttons {
+    justify-content: center;
+    justify-items: center;
+    gap: 0.5rem;
+    margin: 0.1rem auto 0;
+    width: min(460px, 100%);
+    grid-auto-rows: 48px; /* lidt mindre knaphøjde på mobil */
+  }
+
+  /* Extra-tight layout for very narrow screens */
+  @media (max-width: 420px) {
+    .hero {
+      gap: 0.25rem;
+    }
+    .hero-buttons {
+      gap: 0.4rem;
+      grid-auto-rows: 44px;
+    }
+    .hero-text h1 {
+      margin-bottom: 0.5rem;
+    }
+    .hero-video-wrapper {
+      margin-top: 0.25rem;
+    }
+  }
+
+  .hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
   }
 
   .hero img {
@@ -512,4 +574,59 @@ button[type="submit"] {
   }
 
   
+}
+
+/* ==========================================================================
+   Mobile: Portfolio specific tweaks
+   ========================================================================== */
+@media (max-width: 600px) {
+  /* Two-column layout on narrow phones so thumbnails stay compact */
+  .portfolio-gallery {
+    /* balancerede ydre margener */
+    padding: 1.5rem 1.25rem;
+    background-color: #f8f8f8;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+
+  .portfolio-gallery .gallery {
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    /* større mellemrum mellem både rækker og kolonner */
+    gap: 0.3rem 2.5rem;
+  }
+
+  .portfolio-gallery .gallery-item img {
+    width: 100%;
+    height: auto;
+    max-height: 180px; /* lidt større thumbnails */
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  /* Ensure equal spacing and consistent sizing between items */
+  .portfolio-gallery .gallery {
+    justify-items: center; /* center content inside each grid cell */
+    align-items: start;
+  }
+
+  .portfolio-gallery .gallery-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center; /* keep items centered when a row has an odd item */
+  }
+
+  .portfolio-gallery .gallery-item p {
+    padding-top: 0.4rem;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  /* Align gallery header spacing with the rest of the mobile container */
+  .gallery-header {
+    padding: 0 1.25rem;
+    margin-bottom: 1rem;
+  }
 }
